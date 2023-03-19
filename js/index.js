@@ -122,12 +122,21 @@ console.log("Learning DOM");
   /*    Property   =>   Get
      1. parentNode => Parent Node
      2. parentElement => Parent Element Node
+
      3. childNodes => Child Nodes
-     4. firstChild => First Child Node
-     5. firstElementChild => First Child Element Node
-     6. lastChild => Last Child Node
-     7. lastElementChild => Last Child Element Node
-     8. children => Element Child Nodes
+     4. children => Element Child Nodes
+
+     5. firstChild => First Child Node
+     6. firstElementChild => First Child Element Node
+
+     7. lastChild => Last Child Node
+     8. lastElementChild => Last Child Element Node
+
+     9. previousSibling => Previous Sibling Node
+     10. previousElementSibling => Previous Sibling Element Node
+
+     11. nextSibling => 	Next Sibling Node
+     12. nextElementSibling => Next Sibling Element Node
   */
   
   // parentNode and parentElement 
@@ -141,5 +150,17 @@ console.log("Learning DOM");
   console.log("ulEle >>>", ulEle);
   console.log("ulEle.childNodes >>>", ulEle.childNodes);
   console.log("ulEle.children >>>", ulEle.children);
+  
+  // ulEle.firstChild.style.background = 'yellow'; // Throwing an error
+  ulEle.firstElementChild.style.background = 'yellow';
 
+  for (let element of ulEle.children) {
+    element.style.background = 'yellow';
+  }
+  
+  ulEle.lastElementChild.style.background = 'fuchsia';
+
+  const tiger = ulEle.children[1];
+  tiger.nextElementSibling.style.background = 'coral';
+  tiger.previousElementSibling.style.background = 'aquamarine';
 })();

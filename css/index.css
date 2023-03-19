@@ -12,3 +12,9 @@ div, article {
   margin: 5px;
   border: 1px solid #dedede;
 }
+
+.traverse > * {
+  border: 2px solid #dedede;
+  padding: 15px;
+  margin: 15px;
+}
