@@ -163,4 +163,62 @@ console.log("Learning DOM");
   const tiger = ulEle.children[1];
   tiger.nextElementSibling.style.background = 'coral';
   tiger.previousElementSibling.style.background = 'aquamarine';
+
+  // Make Changes to the DOM
+  
+  // Creating New Node
+  /* 
+          Property/Method          =>          Descriptions
+       1. createElement()          =>    Create a new element node
+       2. createTextNode()         =>    Create a new text node
+       3. node.textContent         =>    Get or set the text content of an element node
+       4. node.innerHTML           =>    Get or set the HTML content of an element
+  */
+
+  const paragraph = document.createElement('p');
+  console.log("paragraph >>>", paragraph);
+
+  // A combination of createElement() and textContent creates a complete element node.
+  paragraph.textContent = "I'm a brand new paragraph.";
+  console.log("paragraph.textContent >>>", paragraph);
+
+  /* An alternate method of setting the content of the element is with the innerHTML property,
+     which allows you to add HTML as well as text to an element. */
+  paragraph.innerHTML = "I'm a paragraph with <strong>bold</strong> text.";
+  console.log("paragraph.innerHTML >>>", paragraph);
+
+  // It is also possible to create a text node with the createTextNode() method.
+  const text = document.createTextNode("I'm a new text node.");
+  console.log("text >>>", text);
+
+  // Inserting Nodes into the DOM
+  /* 
+          Property/Method             =>             Descriptions
+       1. node.appendChild(newNode)          =>    Add a node as the last child of a parent element
+       2. node.insertBefore(newNode, childNode)         =>    Insert a node into the parent element before a specified sibling node (2 Arguments)
+       3. node.replaceChild(newNode, oldNode)         =>    Replace an existing node with a new node
+  */
+
+  const todoList = document.getElementById('inserting');
+  const newTodo = document.createElement('li');
+  newTodo.textContent = 'Do homework';
+  todoList.appendChild(newTodo);
+
+  const otherTodo = document.createElement('li');
+  otherTodo.textContent = 'Pay bills';
+  todoList.insertBefore(otherTodo, todoList.firstElementChild);
+
+  const modifiedTodo = document.createElement('li');
+  modifiedTodo.textContent = 'Feed the dog';
+  todoList.replaceChild(modifiedTodo, todoList.children[2]);
+
+  // Removing Nodes from the DOM
+  /* 
+          Property/Method               =>      Descriptions
+       1. node.removeChild(newNode)     =>    Remove child node
+       2. node.remove()                 =>    Remove node
+  */
+  todoList.removeChild(todoList.lastElementChild);
+  todoList.children[1].remove(); // remove itself
+  
 })();
