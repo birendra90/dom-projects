@@ -18,3 +18,26 @@ div, article {
   padding: 15px;
   margin: 15px;
 }
+
+img {
+  width: 100%;
+  height: 150px;
+}
+
+.active {
+  border: 2px solid blue !important;
+}
+
+.warning {
+  border: 2px solid red !important;
+}
+
+.hidden {
+  display: none;
+}
+
+#modify-class {
+  border: 2px dashed lightgray;
+  padding: 15px;
+  margin: 5px;
+}

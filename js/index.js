@@ -221,4 +221,101 @@ console.log("Learning DOM");
   todoList.removeChild(todoList.lastElementChild);
   todoList.children[1].remove(); // remove itself
   
+  // Modify Attributes, Classes, and Styles in the DOM
+
+  // Modifying Attributes
+  /*
+          Method             =>          Descriptions                =>            Example
+       1. hasAttribute()     =>   Returns a true or false boolean         element.hasAttribute('href');
+       2. getAttribute()     =>   Returns the value of a specified   =>   element.getAttribute('href');
+                                  attribute or null
+       3. setAttribute()     =>   Adds or updates value of a         =>   element.setAttribute('href', 'index.html');
+                                  specified attribute
+       4. removeAttribute()  =>   Removes an attribute from an       =>   element.removeAttribute('href');
+                                  element
+   */
+
+  const img = document.querySelector('img');
+
+  const isExistSrc = img.hasAttribute('src');
+  console.log("isExistSrc >>>", isExistSrc);
+  const srcValue =img.getAttribute('src');
+  console.log("srcValue >>>", srcValue);
+  img.removeAttribute('src');
+  
+  img.setAttribute('src', 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg');
+
+  // Modifying Classes
+  /*
+          Method/Property            =>          Descriptions                =>            Example
+       1. className                  =>   Gets or sets class value                   element.className;
+       2. classList.add()            =>   Adds one or more class values      =>   element.classList.add('active');
+       3. classList.toggle()         =>   Toggles a class on or off          =>   element.classList.toggle('active');
+       4. classList.contains()       =>   Checks if class value exists       =>   element.classList.contains('active');
+       5. classList.replace()        =>   Replace an existing class value    =>   element.classList.replace('old', 'new');
+                                          with a new class value
+       6. classList.remove()         =>   Remove a class value               =>   element.classList.remove('active');
+   */
+
+  // Select the modify-class div
+  const div = document.getElementById('modify-class');
+
+  // Assign the warning class to the modify-class div
+  div.className = 'warning';
+
+  const activeDiv = document.querySelector('.active');
+
+  activeDiv.classList.add('hidden');                
+  activeDiv.classList.remove('hidden');
+  activeDiv.classList.toggle('hidden');  // Off           // Switch between hidden true and false
+  activeDiv.classList.replace('active', 'warning');
+  activeDiv.classList.toggle('hidden'); // On
+
+  // Modifying Styles
+
+  // Select the modify-style div
+  const divEle = document.getElementById('modify-style');
+
+  divEle.setAttribute('style', 'text-align: center');
+
+  divEle.style.height = '100px';
+  divEle.style.width = '100px';
+  divEle.style.border = '2px solid black';
+  divEle.style.textAlign = 'center';
+  
+  // Make div into a circle and vertically center the text
+  divEle.style.borderRadius = '50%';
+  divEle.style.display = 'flex';
+  divEle.style.justifyContent = 'center';
+  divEle.style.alignItems = 'center';
+
+  // Events in JavaScript
+
+  // Function to modify the text content of the paragraph
+  const changeText = () => {
+    const p = document.querySelector('#eve');
+
+    p.textContent = "I changed because of an inline event handler.";
+  }
+  
+  // Add event handler as a property of the button element
+  const button = document.querySelector('#btn');
+
+  // button.onclick = changeText; // direct call on click
+
+  button.addEventListener('click', changeText); // using event listener
+
+  // Remove changeText function from button element
+  button.removeEventListener('click', changeText);
+
+  // Do check more events
+  //   https://www.digitalocean.com/community/tutorials/understanding-events-in-javascript
+
+  // Test the key and code properties
+  document.addEventListener('keydown', event => {
+    console.log('key: ' + event.key);
+    console.log('code: ' + event.code);
+  });
+
+
 })();
